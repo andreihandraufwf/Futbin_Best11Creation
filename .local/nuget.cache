@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jV0KFikYIimfZwDDyPxvjpv83OuyvfHv+K3zq1UtX1n28kb+6j05ATgJ4SHzL11CvZZSyCVuyuUyg02k4FsL2A==",
+  "dgSpecHash": "ll5IIdMzeSY4YBQQ7Zbg2qPCOvHn+/4eHe5449rOc8smLIzDUQlxED8jcC1xqokij/T8UUi3WEXSceQaySG1uA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AndreiHandrau\\Documents\\UiPath\\Futbin_Best_11_Creation\\.local\\",
+  "projectFilePath": "C:\\Users\\AndreiHandrau\\Documents\\GitHub\\Futbin_Best11Creation\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\AndreiHandrau\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",
     "C:\\Users\\AndreiHandrau\\.nuget\\packages\\csvhelper\\16.0.0\\csvhelper.16.0.0.nupkg.sha512",
