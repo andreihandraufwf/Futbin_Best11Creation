@@ -61,7 +61,6 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="This sequence will record the user's choice for the league and pass this information to filter players accordingly" DisplayName="League_Choice_Input" sap:VirtualizedContainerService.HintSize="376,840.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -72,7 +71,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening League_Choice_Input Workflow&quot;]" />
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,299.333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please Choose one of the following leagues" OptionsString="Premier League;LaLiga Santander;Serie A;Bundesliga;Ligue 1" Title="League Choice">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Input League Choice" sap:VirtualizedContainerService.HintSize="334,299.333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please choose one of the following leagues" OptionsString="Premier League;LaLiga Santander;Serie A;Bundesliga;Ligue 1" Title="League Choice">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[out_LeagueChoice]</OutArgument>
       </ui:InputDialog.Result>

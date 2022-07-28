@@ -6,6 +6,7 @@
     "UiPath.Excel.Activities": "[2.12.3]",
     "UiPath.Mail.Activities": "[1.15.2]",
     "UiPath.System.Activities": "[22.4.1]",
+    "UiPath.Testing.Activities": "[22.4.3]",
     "UiPath.UIAutomation.Activities": "[22.4.5]"
   },
   "webServices": [],
@@ -39,7 +40,62 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "48dd9d7c-0cca-4df3-9f80-6a9c1cc374bf",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_ReadConfigFile.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "de432d85-18cd-40fe-8071-310415915353",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_League_Choice_Input.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "8dac088e-8773-43bf-adbd-a2784439fa49",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Futbin_Open.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "48ce9d4a-bdb3-482c-90ea-338bf0fdcc69",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Futbin_NavigateTo.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "cf3a5c28-0e92-4531-833f-4a7980fd4559",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Futbin_ShowPlayers.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "1c4502c5-15ad-41fd-8d0c-bfaf1775b65d",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Scrape_Player_Data.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "abc443e5-2ade-4c7f-87de-bdb1e80f6470",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Enough_Players_Exist.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "35b67fb1-2b78-4387-b092-37c02ee5f0b7",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_Futbin_GetFormation.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "a0964c10-e09d-416a-a0da-f8e0b4b6f2dc",
+        "testCaseType": "TestCase",
+        "fileName": "TestCases\\TestCase_FutbinBuildInformation.xaml"
+      }
+    ],
     "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
