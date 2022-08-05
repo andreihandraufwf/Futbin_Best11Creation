@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1250.66666666667,902.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>612.666666666667,902.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Futbin_NavigateTo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -74,7 +74,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening Futbin_NavigateTo Workflow&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[BrowserType.Edge]" DisplayName="Attach Edge" sap:VirtualizedContainerService.HintSize="434,431.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="038d362b3d763f4a396f61783f7b4a7d" Selector="&lt;html app='msedge.exe' title='FIFA 22*' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[BrowserType.Edge]" DisplayName="Attach Edge" sap:VirtualizedContainerService.HintSize="434,431.333333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="038d362b3d763f4a396f61783f7b4a7d" Selector="&lt;html app='msedge.exe' title='FIFA *' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>

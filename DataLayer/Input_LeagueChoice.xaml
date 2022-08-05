@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1250.66666666667,905.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>612.666666666667,905.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>League_Choice_Input_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -61,6 +61,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="This sequence will record the user's choice for the league and pass this information to filter players accordingly" DisplayName="League_Choice_Input" sap:VirtualizedContainerService.HintSize="376,840.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -70,13 +71,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening League_Choice_Input Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Opening Input_LeagueChoice Workflow&quot;]" />
     <ui:InputDialog Options="{x:Null}" DisplayName="Input League Choice" sap:VirtualizedContainerService.HintSize="334,299.333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please choose one of the following leagues" OptionsString="Premier League;LaLiga Santander;Serie A;Bundesliga;Ligue 1" Title="League Choice">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[out_LeagueChoice]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
     <ui:LogMessage DisplayName="Selected League Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Selected League is: &quot; +out_LeagueChoice]" />
-    <ui:LogMessage DisplayName="Sequence to indicate end of workflow" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Closing League_Choice_Input Workflow&quot;]" />
+    <ui:LogMessage DisplayName="Sequence to indicate end of workflow" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Closing Input_LeagueChoice Workflow&quot;]" />
   </Sequence>
 </Activity>

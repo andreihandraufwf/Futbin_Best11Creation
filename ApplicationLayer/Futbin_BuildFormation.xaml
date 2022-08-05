@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>670.666666666667,3586</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>670.666666666667,3440</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Futbin_BuildFormation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -75,10 +75,9 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This sequence is going to iterate through provided list and click on the first element that has the list item in its innertext attribute.&#xA;It will then filter all players with pre-defined version and look for the first player that fits that position from the data table. Then it will delete that one from the data table to ensure that there are no duplicates" DisplayName="Futbin_BuildFormation" sap:VirtualizedContainerService.HintSize="680.666666666667,3521.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This sequence is going to iterate through provided list and click on the first element that has the list item in its innertext attribute.&#xA;It will then filter all players with pre-defined version and look for the first player that fits that position from the data table. Then it will delete that one from the data table to ensure that there are no duplicates" DisplayName="Futbin_BuildFormation" sap:VirtualizedContainerService.HintSize="680.666666666667,3375.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="AddedPlayersList" />
       <Variable x:TypeArguments="sd:DataRow[]" Name="FilteredPlayers" />
@@ -102,25 +101,25 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[new List(of String)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[BrowserType.Edge]" DisplayName="Attach Squad-Builder Page" sap:VirtualizedContainerService.HintSize="638.666666666667,2979.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="51690f63df31dc557da8a70b730187e4" Selector="&lt;html app='msedge.exe' title='FIFA 22 Squad Builder | FUTBIN' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="[BrowserType.Edge]" DisplayName="Attach Squad-Builder Page" sap:VirtualizedContainerService.HintSize="638.666666666667,2833.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="51690f63df31dc557da8a70b730187e4" Selector="&lt;html app='msedge.exe' title='FIFA * Squad Builder | FUTBIN' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Build Squad" sap:VirtualizedContainerService.HintSize="604.666666666667,2833.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Build Squad" sap:VirtualizedContainerService.HintSize="604.666666666667,2687.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Position on the board" sap:VirtualizedContainerService.HintSize="562.666666666667,2275.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_PositionList]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Position on the board" sap:VirtualizedContainerService.HintSize="562.666666666667,2129.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_PositionList]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="item" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Add Player to Board" sap:VirtualizedContainerService.HintSize="526,2150.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Add Player to Board" sap:VirtualizedContainerService.HintSize="526,2004.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -134,21 +133,14 @@
                         <InArgument x:TypeArguments="sd:DataRow[]">[in_dt_PlayerData.Select("[POS] = '" + item + "'")]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If sap2010:Annotation.AnnotationText="This if checks that there is a player available at every open position and throws a business exception if that is the case" Condition="[FilteredPlayers.Count = 0]" DisplayName="If Filtered Players are empty" sap:VirtualizedContainerService.HintSize="484,350.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If sap2010:Annotation.AnnotationText="This if checks that there is a player available at every open position and throws a business exception if that is the case" Condition="[FilteredPlayers.Count = 0]" DisplayName="If Filtered Players are empty" sap:VirtualizedContainerService.HintSize="484,296.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence DisplayName="Throw Business Exception" sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Throw DisplayName="Throw BRE - Not enough players for each position" Exception="[New BusinessRuleException(&quot;Error: Not enough players to fill every position!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                        </Sequence>
+                        <Throw DisplayName="Throw BRE - Not enough players for each position" Exception="[New BusinessRuleException(&quot;Error: Not enough players to fill every position!&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                       </If.Then>
                       <If.Else>
                         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
@@ -161,23 +153,16 @@
                       </If.Else>
                     </If>
                     <ExistsInCollection x:TypeArguments="x:String" Collection="[AddedPlayersList]" DisplayName="Check to see if added" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_1" Item="[FilteredPlayers(0).Field(of String)(&quot;Name&quot;)]" Result="[PlayerAdded]" />
-                    <If Condition="[PlayerAdded]" DisplayName="If player has already been added" sap:VirtualizedContainerService.HintSize="484,345.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[PlayerAdded]" DisplayName="If player has already been added" sap:VirtualizedContainerService.HintSize="484,253.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence DisplayName="Jump over first element" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Skip the first element of the array" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="sd:DataRow[]">[FilteredPlayers]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="sd:DataRow[]">[FilteredPlayers.Skip(1).ToArray]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                        </Sequence>
+                        <Assign DisplayName="Skip the first element of the array" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="sd:DataRow[]">[FilteredPlayers]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="sd:DataRow[]">[FilteredPlayers.Skip(1).ToArray]</InArgument>
+                          </Assign.Value>
+                        </Assign>
                       </If.Then>
                       <If.Else>
                         <Sequence sap:VirtualizedContainerService.HintSize="242,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">

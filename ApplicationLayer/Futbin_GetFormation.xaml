@@ -1,11 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Futbin_BuildFormation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Futbin_BuildFormation" this:Futbin_BuildFormation.in_Formation="4-3-3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_PositionList" Type="OutArgument(scg:List(x:String))" />
+    <x:Property Name="in_Formation" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>610.666666666667,2232</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>612.666666666667,1892.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Futbin_BuildFormation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -68,12 +69,10 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This sequence will prompt the user to choose a formation and then it will set that formation in the website. Then it gets an array of all the card elements and builds an array with the position to send to another sequence" DisplayName="Futbin_GetFormation" sap:VirtualizedContainerService.HintSize="552,2167.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This sequence will prompt the user to choose a formation and then it will set that formation in the website. Then it gets an array of all the card elements and builds an array with the position to send to another sequence" DisplayName="Futbin_GetFormation" sap:VirtualizedContainerService.HintSize="552,1828" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="4-3-3" Name="Formation" />
       <Variable x:TypeArguments="x:String" Name="CurrentPosition" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="Cards" />
     </Sequence.Variables>
@@ -84,12 +83,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message to indicate beginning of test case" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Opening Futbin_GetFormation Test Case&quot;]" />
-    <ui:InputDialog Options="{x:Null}" DisplayName="Formation Input" sap:VirtualizedContainerService.HintSize="510,299.333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Please choose one of the following formations" OptionsString="4-3-3;4-4-2;4-2-3-1" Title="Choose Formation">
-      <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[Formation]</OutArgument>
-      </ui:InputDialog.Result>
-    </ui:InputDialog>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach FIFA 22 Squad Buider webpage" sap:VirtualizedContainerService.HintSize="510,1404.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="256ea5ae66d4ea9a4075cd1888461431" Selector="&lt;html app='msedge.exe' title='FIFA 22 Squad Builder | FUTBIN' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach FIFA 22 Squad Buider webpage" sap:VirtualizedContainerService.HintSize="510,1404.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="256ea5ae66d4ea9a4075cd1888461431" Selector="&lt;html app='msedge.exe' title='FIFA * Squad Builder | FUTBIN' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -136,7 +130,7 @@
                 </ui:CursorPosition>
               </ui:Click.CursorPosition>
               <ui:Click.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3db801f-08c0-4136-a98e-dad4c37487f7" InformativeScreenshot="80d1ab2f40d488465f499c2330bdf865" Selector="[String.Format(&quot;&lt;webctrl aaname='                                             {0}              *' parentid='drop_down_menu' tag='A' innertext='                                             {0}                                        ' /&gt;&quot;, Formation)]">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3db801f-08c0-4136-a98e-dad4c37487f7" InformativeScreenshot="80d1ab2f40d488465f499c2330bdf865" Selector="[String.Format(&quot;&lt;webctrl aaname='                                             {0}              *' parentid='drop_down_menu' tag='A' innertext='                                             {0}                                        ' /&gt;&quot;, in_Formation)]">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>

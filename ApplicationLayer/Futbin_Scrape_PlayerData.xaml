@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1250.66666666667,1130.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>610.666666666667,825.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Scrape_Player_Data_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -70,7 +70,7 @@
       <AssemblyReference>NPOI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This sequence is for scraping the data after filter have been applied and it will passed to out_dt_PlayerData" DisplayName="Scrape_Player_Data" sap:VirtualizedContainerService.HintSize="476,1066" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This sequence is for scraping the data after filter have been applied and it will passed to out_dt_PlayerData" DisplayName="Futbin_Scrape_PlayerData" sap:VirtualizedContainerService.HintSize="476,760.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_ExtractDataTable" />
     </Sequence.Variables>
@@ -80,34 +80,33 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening Scrape_Player_Data Workflow&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Fifa 22 Players Page" sap:VirtualizedContainerService.HintSize="434,374.666666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3577ea1d41b3b343ea1e5c02622710a1" Selector="&lt;html app='msedge.exe' title='FIFA 22 Players - Ultimate Team Ratings | FUTBIN' /&gt;">
+    <ui:LogMessage DisplayName="Log Message to indicate beginning of workflow" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Opening Futbin_Scrape_PlayerData Workflow&quot;]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Fifa 22 Players Page" sap:VirtualizedContainerService.HintSize="434,252" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="3577ea1d41b3b343ea1e5c02622710a1" Selector="&lt;html app='msedge.exe' title='FIFA * Players - Ultimate Team Ratings | FUTBIN' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Get Players Data" sap:VirtualizedContainerService.HintSize="376,228.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_ExtractDataTable]" DisplayName="Extract Players' Data Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='text' /&gt;&lt;column name='RAT' attr='text' /&gt;&lt;column name='POS' attr='text' /&gt;&lt;column name='VER' attr='text' /&gt;&lt;column name='PS' attr='text' /&gt;&lt;column name='SKI' attr='text' /&gt;&lt;column name='WF' attr='text' /&gt;&lt;column name='WR' attr='text' /&gt;&lt;column name='PAC' attr='text' /&gt;&lt;column name='SHO' attr='text' /&gt;&lt;column name='PAS' attr='text' /&gt;&lt;column name='DRI' attr='text' /&gt;&lt;column name='DEF' attr='text' /&gt;&lt;column name='PHY' attr='text' /&gt;&lt;column name='Ht-Wt' attr='text' /&gt;&lt;column name='Popularity' attr='text' /&gt;&lt;column name='BS' attr='text' /&gt;&lt;column name='IGS' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl aaname='»' tag='SPAN' /&gt;" SimulateClick="True">
-              <ui:ExtractData.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0eb08d9d-b400-48c1-ade7-e18af309272d" InformativeScreenshot="c48e9776c38111c09c508cd95c67dd80" Selector="&lt;webctrl id='repTb' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                </ui:Target>
-              </ui:ExtractData.Target>
-            </ui:ExtractData>
-          </Sequence>
+          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[dt_ExtractDataTable]" DisplayName="Extract Players' Data Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Name' attr='text' /&gt;&lt;column name='RAT' attr='text' /&gt;&lt;column name='POS' attr='text' /&gt;&lt;column name='VER' attr='text' /&gt;&lt;column name='PS' attr='text' /&gt;&lt;column name='SKI' attr='text' /&gt;&lt;column name='WF' attr='text' /&gt;&lt;column name='WR' attr='text' /&gt;&lt;column name='PAC' attr='text' /&gt;&lt;column name='SHO' attr='text' /&gt;&lt;column name='PAS' attr='text' /&gt;&lt;column name='DRI' attr='text' /&gt;&lt;column name='DEF' attr='text' /&gt;&lt;column name='PHY' attr='text' /&gt;&lt;column name='Ht-Wt' attr='text' /&gt;&lt;column name='Popularity' attr='text' /&gt;&lt;column name='BS' attr='text' /&gt;&lt;column name='IGS' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="0" NextLinkSelector="&lt;webctrl aaname='»' tag='SPAN' /&gt;" SimulateClick="True">
+            <ui:ExtractData.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0eb08d9d-b400-48c1-ade7-e18af309272d" InformativeScreenshot="c48e9776c38111c09c508cd95c67dd80" Selector="&lt;webctrl id='repTb' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+              </ui:Target>
+            </ui:ExtractData.Target>
+          </ui:ExtractData>
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="RAT" DataTable="[dt_ExtractDataTable]" DisplayName="Sort Players' Data" sap:VirtualizedContainerService.HintSize="334,244.666666666667" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[out_dt_PlayerData]" SortOrder="Descending" />
-    <ui:LogMessage DisplayName="Log Message to indicate end of workflow" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Closing Scrape_Player_Data Workflow&quot;]" />
+    <Assign DisplayName="Assign player data ordered by rating" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[out_dt_PlayerData]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[dt_ExtractDataTable.AsEnumerable.OrderBy(Function(x) x("RAT")).CopyToDataTable]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message to indicate end of workflow" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Closing Futbin_Scrape_PlayerData Workflow&quot;]" />
   </Sequence>
 </Activity>
