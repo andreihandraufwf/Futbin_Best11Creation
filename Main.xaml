@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="612.666666666667,806" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="614,2587.33333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,10 +34,12 @@
       <x:String>UiPath.Mail.Activities.Utils</x:String>
       <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,33 +72,30 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Futbin_Best_11_Creation" sap:VirtualizedContainerService.HintSize="476,741.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Futbin_Best_11_Creation" sap:VirtualizedContainerService.HintSize="484,2522.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
+      <Variable x:TypeArguments="ui:Browser" Name="edgeFutbin" />
+      <Variable x:TypeArguments="x:String" Name="formationChoice" />
+      <Variable x:TypeArguments="x:String" Name="SquadURL" />
+      <Variable x:TypeArguments="x:String" Name="LeagueChoice" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_PlayerData" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="PositionList" />
+      <Variable x:TypeArguments="x:String" Default="[Config(&quot;EmailSubjectFailure&quot;).ToString]" Name="EmailSubjectFailure" />
+      <Variable x:TypeArguments="x:String" Default="[Config(&quot;EmailReceiver&quot;).ToString]" Name="EmailReceiver" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message to indicate beginning of process" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting Process&quot;]" />
-    <TryCatch DisplayName="Try Catch for Futbin_Best_11_Creation" sap:VirtualizedContainerService.HintSize="434,380" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-      <TryCatch.Variables>
-        <Variable x:TypeArguments="x:String" Default="[Config(&quot;EmailReceiver&quot;).ToString]" Name="EmailReceiver" />
-        <Variable x:TypeArguments="x:String" Default="[Config(&quot;EmailSubjectFailure&quot;).ToString]" Name="EmailSubjectFailure" />
-        <Variable x:TypeArguments="x:String" Default="[Config(&quot;EmailBodyFailure&quot;).ToString]" Name="EmailBodyFailure" />
-      </TryCatch.Variables>
+    <ui:LogMessage DisplayName="Log Message to indicate beginning of process" sap:VirtualizedContainerService.HintSize="442,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting Process&quot;]" />
+    <TryCatch DisplayName="Try Catch for Futbin_Best_11_Creation" sap:VirtualizedContainerService.HintSize="442,2161.33333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
         <Sequence DisplayName="Build Squad" sap:VirtualizedContainerService.HintSize="403.333333333333,1900" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="LeagueChoice" />
-            <Variable x:TypeArguments="sd:DataTable" Name="dt_PlayerData" />
-            <Variable x:TypeArguments="scg:List(x:String)" Name="PositionList" />
-            <Variable x:TypeArguments="x:String" Name="SquadURL" />
-            <Variable x:TypeArguments="x:String" Name="formationChoice" />
-          </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -115,35 +114,74 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Futbin_Open workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_Open.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_FutbinURL">[Config("Futbin_URL").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FutbinURL">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Futbin_URL&quot;).ToString" />
+              </InArgument>
+              <OutArgument x:TypeArguments="ui:Browser" x:Key="out_edgeFutbin">
+                <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Navigate To Players Page" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_NavigateTo.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_URL">[Config("FutbinPlayers_URL").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_URL">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FutbinPlayers_URL&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Futbin_ShowPlayers workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_ShowPlayers.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_LeagueChoice">[LeagueChoice]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Version">[Config("PlayerVersion").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Delay">[Config("BuildFormationDelay").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_LeagueChoice">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="LeagueChoice" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Version">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;PlayerVersion&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Delay">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;BuildFormationDelay&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_delayError">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;delayBRException&quot;).ToString" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Scrape_Player_Data workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_Scrape_PlayerData.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PlayerData">[dt_PlayerData]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PlayerData">
+                <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_PlayerData" />
+              </OutArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Enough_Players_Exist workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="BusinessLayer\Check_EnoughPlayersExist.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PlayerData">[dt_PlayerData]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">[Config("BrowserName").ToString]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PlayerData">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_PlayerData" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;BrowserName&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_playersnrException">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;playernrBRException&quot;).ToString" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Navigate to Squad Builder Page" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_NavigateTo.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_URL">[Config("FutbinSquad_URL").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_URL">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;FutbinSquad_URL&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Input_FormationChoice workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="DataLayer\Input_FormationChoice.xaml">
@@ -161,28 +199,50 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_Formation">
                 <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="formationChoice" />
               </InArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Futbin_BuildFormation workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="ApplicationLayer\Futbin_BuildFormation.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PositionList">[PositionList]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PlayerData">[dt_PlayerData]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_Version">[Config("PlayerVersion").ToString]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_SquadURL">[SquadURL]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_BuildFormationDelay">[Config("BuildFormationDelay").ToString]</InArgument>
+              <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_PositionList">
+                <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="PositionList" />
+              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PlayerData">
+                <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_PlayerData" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Version">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;PlayerVersion&quot;).ToString" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_SquadURL">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="SquadURL" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_BuildFormationDelay">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;BuildFormationDelay&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="ui:Browser" x:Key="in_edgeFutbin">
+                <mva:VisualBasicValue x:TypeArguments="ui:Browser" ExpressionText="edgeFutbin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Send_SuccessEmail workflow" sap:VirtualizedContainerService.HintSize="361.333333333333,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="ServiceLayer\Outlook_SendEmail.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="in_EmailReceiver">[Config("EmailReceiver").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_EmaiSubject">[Config("EmailSubjectSuccess").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">[SquadURL]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailReceiver">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailReceiver&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmaiSubject">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailSubjectSuccess&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="SquadURL" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="400,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="408,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -193,43 +253,25 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <umab:OutlookApplicationCard Account="{x:Null}" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App to email the error" sap:VirtualizedContainerService.HintSize="510,674.666666666667" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
-              <umab:OutlookApplicationCard.Body>
-                <ActivityAction x:TypeArguments="um:IMailQuickHandle">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Send Failure Email" sap:VirtualizedContainerService.HintSize="476,488" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Outlook]" Body="[EmailBodyFailure]" BodyType="Text" DisplayName="Send Failure Email" sap:VirtualizedContainerService.HintSize="434,396" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="[EmailSubjectFailure]" To="[EmailReceiver]" UseDocumentAsBody="False">
-                      <umab:SendMailX.Files>
-                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                      </umab:SendMailX.Files>
-                      <umab:SendMailX.HtmlBodyFromFile>
-                        <umabh:HtmlContentArgument FilePath=".data/HtmlContent0.html">
-                          <umabh:HtmlContentArgument.RuntimeImages>
-                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
-                          </umabh:HtmlContentArgument.RuntimeImages>
-                          <umabh:HtmlContentArgument.ValueMappings>
-                            <scg:List x:TypeArguments="umabh:HtmlValueMappingBase" Capacity="0" />
-                          </umabh:HtmlContentArgument.ValueMappings>
-                        </umabh:HtmlContentArgument>
-                      </umab:SendMailX.HtmlBodyFromFile>
-                    </umab:SendMailX>
-                  </Sequence>
-                </ActivityAction>
-              </umab:OutlookApplicationCard.Body>
-            </umab:OutlookApplicationCard>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Outlook_SendEmail workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="ServiceLayer\Outlook_SendEmail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmaiSubject">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EmailSubjectFailure" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailBody">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="exception.Message" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_EmailReceiver">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EmailReceiver" />
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
           </ActivityAction>
         </Catch>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,184.666666666667" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="408,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -254,6 +296,6 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:LogMessage DisplayName="Log Message to indicate end of process" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Finished. Closing..&quot;]" />
+    <ui:LogMessage DisplayName="Log Message to indicate end of process" sap:VirtualizedContainerService.HintSize="442,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process Finished. Closing..&quot;]" />
   </Sequence>
 </Activity>

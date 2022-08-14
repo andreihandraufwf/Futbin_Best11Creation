@@ -2,11 +2,15 @@
   <x:Members>
     <x:Property Name="out_PositionList" Type="OutArgument(scg:List(x:String))" />
     <x:Property Name="in_Formation" Type="InArgument(x:String)" />
+    <x:Property Name="in_edgeFutbin" Type="InArgument(ui:Browser)" />
   </x:Members>
+  <this:Futbin_BuildFormation.in_edgeFutbin>
+    <InArgument x:TypeArguments="ui:Browser" />
+  </this:Futbin_BuildFormation.in_edgeFutbin>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>612.666666666667,1892.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>614,1892.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Futbin_BuildFormation_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -83,7 +87,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message to indicate beginning of test case" sap:VirtualizedContainerService.HintSize="510,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Opening Futbin_GetFormation Test Case&quot;]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach FIFA 22 Squad Buider webpage" sap:VirtualizedContainerService.HintSize="510,1404.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="256ea5ae66d4ea9a4075cd1888461431" Selector="&lt;html app='msedge.exe' title='FIFA * Squad Builder | FUTBIN' /&gt;">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[in_edgeFutbin]" BrowserType="Edge" DisplayName="Attach FIFA 22 Squad Buider webpage" sap:VirtualizedContainerService.HintSize="510,1404.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="256ea5ae66d4ea9a4075cd1888461431">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
